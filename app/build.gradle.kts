@@ -20,3 +20,20 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
 }
+
+application {
+    // Define the main class for the application.
+    mainClass = "hexlet.code.App"
+}
+
+tasks.getByName("run", JavaExec::class) {
+    standardInput = System.`in`
+}
+
+sonar {
+  properties {
+    property ("sonar.projectKey", "LittleC0rgi_java-project-61")
+    property ("sonar.organization", "littlec0rgi")
+    property("sonar.coverage.exclusions", "**/*")
+  }
+}
