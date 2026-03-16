@@ -18,7 +18,7 @@ public final class CalcGame implements Game {
         int firstNumber = ThreadLocalRandom.current().nextInt(MIN, MAX + 1);
         int secondNumber = ThreadLocalRandom.current().nextInt(MIN, MAX + 1);
 
-        String[] operators = { "+", "-", "*" };
+        String[] operators = {"+", "-", "*"};
         String op = operators[ThreadLocalRandom.current().nextInt(operators.length)];
 
         return firstNumber + " " + op + " " + secondNumber;
