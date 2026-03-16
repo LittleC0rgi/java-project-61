@@ -14,8 +14,9 @@ public class Engine {
         Cli cli = new Cli();
         cli.askName(scanner);
 
-        if (game == null)
+        if (game == null) {
             return;
+        }
 
         System.out.println(game.getRule());
 
