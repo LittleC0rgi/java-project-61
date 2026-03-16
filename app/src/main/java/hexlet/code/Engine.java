@@ -8,9 +8,6 @@ public class Engine {
     private static final int ROUNDS = 3;
 
     public static void start(Game game, Scanner scanner) {
-        System.out.println();
-        System.out.println("Welcome to the Brain Games!");
-
         Cli cli = new Cli();
         cli.askName(scanner);
 
