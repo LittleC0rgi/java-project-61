@@ -2,14 +2,13 @@ package hexlet.code.games;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public class ProgressionGame implements Game {
+public final class ProgressionGame implements Game {
     private static final int MIN_START_NUMBER = 1;
     private static final int MAX_START_NUMBER = 50;
     private static final int MAX_STEP = 10;
 
     private static final int MAX_LENGTH_PROGRESSION = 10;
     private static final int MIN_LENGTH_PROGRESSION = 5;
-
 
     @Override
     public String getRule() {

@@ -2,8 +2,7 @@ package hexlet.code.games;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-
-public class EvenGame implements Game {
+public final class EvenGame implements Game {
 
     private static final int MIN = 1;
     private static final int MAX = 100;

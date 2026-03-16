@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public class PrimeGame implements Game {
+public final class PrimeGame implements Game {
     private static final int MIN = 1;
     private static final int MAX = 100;
 

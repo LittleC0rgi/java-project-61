@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public class CalcGame implements Game {
+public final class CalcGame implements Game {
 
     private static final int MIN = 1;
     private static final int MAX = 100;
@@ -18,7 +18,7 @@ public class CalcGame implements Game {
         int firstNumber = ThreadLocalRandom.current().nextInt(MIN, MAX + 1);
         int secondNumber = ThreadLocalRandom.current().nextInt(MIN, MAX + 1);
 
-        String[] operators = {"+", "-", "*"};
+        String[] operators = { "+", "-", "*" };
         String op = operators[ThreadLocalRandom.current().nextInt(operators.length)];
 
         return firstNumber + " " + op + " " + secondNumber;
