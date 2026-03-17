@@ -1,6 +1,5 @@
 package hexlet.code.games;
 
-import java.util.concurrent.ThreadLocalRandom;
 
 public final class ProgressionGame {
     private static final int MIN_START_NUMBER = 1;
@@ -16,12 +15,10 @@ public final class ProgressionGame {
 
     @SuppressWarnings("java:S2245")
     public static String getQuestion() {
-        int length = ThreadLocalRandom.current().nextInt(MIN_LENGTH_PROGRESSION,
-                MAX_LENGTH_PROGRESSION + 1);
-
-        int hiddenIndex = ThreadLocalRandom.current().nextInt(length);
-        int step = ThreadLocalRandom.current().nextInt(MIN_START_NUMBER, MAX_STEP + 1);
-        int number = ThreadLocalRandom.current().nextInt(MIN_START_NUMBER, MAX_START_NUMBER + 1);
+        int length = GameUtils.getRandomNumber(MIN_LENGTH_PROGRESSION, MAX_LENGTH_PROGRESSION);
+        int hiddenIndex = GameUtils.getRandomNumber(0, length - 1);
+        int step = GameUtils.getRandomNumber(1, MAX_STEP);
+        int number = GameUtils.getRandomNumber(MIN_START_NUMBER, MAX_START_NUMBER);
 
         var progression = new StringBuilder();
 

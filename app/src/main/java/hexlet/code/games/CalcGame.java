@@ -1,34 +1,23 @@
 package hexlet.code.games;
 
-import java.util.concurrent.ThreadLocalRandom;
-
 public final class CalcGame {
 
-    private static final int MIN = 1;
-    private static final int MAX = 100;
+    private static final String[] OPERATORS = {"+", "-", "*"};
 
     public static String getRule() {
         return "What is the result of the expression?";
     }
 
-    @SuppressWarnings("java:S2245")
     public static String getQuestion() {
-        int firstNumber = ThreadLocalRandom.current().nextInt(MIN, MAX + 1);
-        int secondNumber = ThreadLocalRandom.current().nextInt(MIN, MAX + 1);
-
-        String[] operators = {"+", "-", "*"};
-        String op = operators[ThreadLocalRandom.current().nextInt(operators.length)];
-
-        return firstNumber + " " + op + " " + secondNumber;
-
+        String op = OPERATORS[GameUtils.getRandomNumber() % OPERATORS.length];
+        return GameUtils.getRandomNumber() + " " + op + " " + GameUtils.getRandomNumber();
     }
 
     public static String getCorrectAnswer(String question) {
         String[] parts = question.split(" ");
-
         int first = Integer.parseInt(parts[0]);
-        int second = Integer.parseInt(parts[2]);
         String operator = parts[1];
+        int second = Integer.parseInt(parts[2]);
 
         int result;
 
@@ -43,7 +32,7 @@ public final class CalcGame {
                 result = first * second;
                 break;
             default:
-                throw new IllegalArgumentException("Unknown operator");
+                throw new IllegalArgumentException("Unknown operator: " + operator);
         }
 
         return String.valueOf(result);
