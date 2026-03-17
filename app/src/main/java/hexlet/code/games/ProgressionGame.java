@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public final class ProgressionGame implements Game {
+public final class ProgressionGame {
     private static final int MIN_START_NUMBER = 1;
     private static final int MAX_START_NUMBER = 50;
     private static final int MAX_STEP = 10;
@@ -10,14 +10,12 @@ public final class ProgressionGame implements Game {
     private static final int MAX_LENGTH_PROGRESSION = 10;
     private static final int MIN_LENGTH_PROGRESSION = 5;
 
-    @Override
-    public String getRule() {
+    public static String getRule() {
         return "What number is missing in the progression?";
     }
 
-    @Override
     @SuppressWarnings("java:S2245")
-    public String getQuestion() {
+    public static String getQuestion() {
         int length = ThreadLocalRandom.current().nextInt(MIN_LENGTH_PROGRESSION,
                 MAX_LENGTH_PROGRESSION + 1);
 
@@ -45,8 +43,7 @@ public final class ProgressionGame implements Game {
         return progression.toString();
     }
 
-    @Override
-    public String getCorrectAnswer(String question) {
+    public static String getCorrectAnswer(String question) {
         String[] numbers = question.split(" ");
 
         int hiddenIndex = -1;

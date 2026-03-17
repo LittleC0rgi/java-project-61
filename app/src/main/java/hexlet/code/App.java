@@ -5,7 +5,6 @@ import java.util.Scanner;
 import hexlet.code.games.CalcGame;
 import hexlet.code.games.EvenGame;
 import hexlet.code.games.GCDGame;
-import hexlet.code.games.Game;
 import hexlet.code.games.PrimeGame;
 import hexlet.code.games.ProgressionGame;
 
@@ -24,7 +23,6 @@ public class App {
         System.out.print("Your choice: ");
         Scanner scanner = new Scanner(System.in);
         String gameNumber = scanner.nextLine();
-        Game game = null;
 
         switch (gameNumber) {
             case "0":
@@ -32,27 +30,32 @@ public class App {
                 break;
 
             case "1":
-                game = null;
+                Engine.start(null, null, null, scanner);
                 break;
 
             case "2":
-                game = new EvenGame();
+                Engine.start(EvenGame.getRule(), EvenGame::getQuestion, EvenGame::getCorrectAnswer,
+                        scanner);
                 break;
 
             case "3":
-                game = new CalcGame();
+                Engine.start(CalcGame.getRule(), CalcGame::getQuestion, CalcGame::getCorrectAnswer,
+                        scanner);
                 break;
 
             case "4":
-                game = new GCDGame();
+                Engine.start(GCDGame.getRule(), GCDGame::getQuestion, GCDGame::getCorrectAnswer,
+                        scanner);
                 break;
 
             case "5":
-                game = new ProgressionGame();
+                Engine.start(ProgressionGame.getRule(), ProgressionGame::getQuestion,
+                        ProgressionGame::getCorrectAnswer, scanner);
                 break;
 
             case "6":
-                game = new PrimeGame();
+                Engine.start(PrimeGame.getRule(), PrimeGame::getQuestion,
+                        PrimeGame::getCorrectAnswer, scanner);
                 break;
 
             default:
@@ -60,8 +63,6 @@ public class App {
                 break;
         }
 
-        Engine.start(game, scanner);
         scanner.close();
-
     }
 }

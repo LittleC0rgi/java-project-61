@@ -2,19 +2,17 @@ package hexlet.code.games;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public final class CalcGame implements Game {
+public final class CalcGame {
 
     private static final int MIN = 1;
     private static final int MAX = 100;
 
-    @Override
-    public String getRule() {
+    public static String getRule() {
         return "What is the result of the expression?";
     }
 
-    @Override
     @SuppressWarnings("java:S2245")
-    public String getQuestion() {
+    public static String getQuestion() {
         int firstNumber = ThreadLocalRandom.current().nextInt(MIN, MAX + 1);
         int secondNumber = ThreadLocalRandom.current().nextInt(MIN, MAX + 1);
 
@@ -25,8 +23,7 @@ public final class CalcGame implements Game {
 
     }
 
-    @Override
-    public String getCorrectAnswer(String question) {
+    public static String getCorrectAnswer(String question) {
         String[] parts = question.split(" ");
 
         int first = Integer.parseInt(parts[0]);

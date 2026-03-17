@@ -1,29 +1,31 @@
 package hexlet.code;
 
 import java.util.Scanner;
-import hexlet.code.games.Game;
+import java.util.function.Supplier;
+import java.util.function.UnaryOperator;
 
 public class Engine {
 
     private static final int ROUNDS = 3;
 
-    public static void start(Game game, Scanner scanner) {
-        System.out.println("");
+    public static void start(String rule, Supplier<String> questionSupplier,
+            UnaryOperator<String> answerProvider, Scanner scanner) {
+        System.out.println();
         System.out.println("Welcome to the Brain Games!");
 
         Cli cli = new Cli();
         cli.askName(scanner);
 
-        if (game == null) {
+        if (rule == null || questionSupplier == null || answerProvider == null) {
             return;
         }
 
-        System.out.println(game.getRule());
+        System.out.println(rule);
 
         for (int i = 0; i < ROUNDS; i++) {
 
-            String question = game.getQuestion();
-            String correctAnswer = game.getCorrectAnswer(question);
+            String question = questionSupplier.get();
+            String correctAnswer = answerProvider.apply(question);
 
             System.out.println("Question: " + question);
             System.out.print("Your answer: ");

@@ -2,24 +2,21 @@ package hexlet.code.games;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public final class PrimeGame implements Game {
+public final class PrimeGame {
     private static final int MIN = 1;
     private static final int MAX = 100;
 
-    @Override
-    public String getRule() {
+    public static String getRule() {
         return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     }
 
-    @Override
     @SuppressWarnings("java:S2245")
-    public String getQuestion() {
+    public static String getQuestion() {
         int number = ThreadLocalRandom.current().nextInt(MIN, MAX + 1);
         return String.valueOf(number);
     }
 
-    @Override
-    public String getCorrectAnswer(String question) {
+    public static String getCorrectAnswer(String question) {
         return isPrime(Integer.parseInt(question)) ? "yes" : "no";
     }
 
