@@ -19,22 +19,21 @@ public final class CalcGame {
         String operator = parts[1];
         int second = Integer.parseInt(parts[2]);
 
-        int result;
+        int result = calculate(first, operator, second);
 
+        return String.valueOf(result);
+    }
+
+    private static int calculate(int first, String operator, int second) {
         switch (operator) {
             case "+":
-                result = first + second;
-                break;
+                return first + second;
             case "-":
-                result = first - second;
-                break;
+                return first - second;
             case "*":
-                result = first * second;
-                break;
+                return first * second;
             default:
                 throw new IllegalArgumentException("Unknown operator: " + operator);
         }
-
-        return String.valueOf(result);
     }
 }
