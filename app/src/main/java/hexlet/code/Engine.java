@@ -13,9 +13,7 @@ public class Engine {
         System.out.println();
         System.out.println("Welcome to the Brain Games!");
 
-        Cli cli = new Cli();
-        cli.askName(scanner);
-
+        var userName = Cli.askName(scanner);
         if (rule == null || questionSupplier == null || answerProvider == null) {
             return;
         }
@@ -39,11 +37,11 @@ public class Engine {
             } else {
                 System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '"
                         + correctAnswer + "'.");
-                System.out.println("Let's try again, " + cli.getName() + "!");
+                System.out.println("Let's try again, " + userName + "!");
                 return;
             }
         }
 
-        System.out.println("Congratulations, " + cli.getName() + "!");
+        System.out.println("Congratulations, " + userName + "!");
     }
 }
