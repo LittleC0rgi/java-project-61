@@ -5,6 +5,7 @@ import java.util.Scanner;
 import hexlet.code.games.CalcGame;
 import hexlet.code.games.EvenGame;
 import hexlet.code.games.GCDGame;
+import hexlet.code.games.GreetingGame;
 import hexlet.code.games.PrimeGame;
 import hexlet.code.games.ProgressionGame;
 
@@ -30,32 +31,27 @@ public class App {
                 break;
 
             case "1":
-                Engine.start(null, null, null, scanner);
+                GreetingGame.play(scanner);
                 break;
 
             case "2":
-                Engine.start(EvenGame.getRule(), EvenGame::getQuestion, EvenGame::getCorrectAnswer,
-                        scanner);
+                EvenGame.play(scanner);
                 break;
 
             case "3":
-                Engine.start(CalcGame.getRule(), CalcGame::getQuestion, CalcGame::getCorrectAnswer,
-                        scanner);
+                CalcGame.play(scanner);
                 break;
 
             case "4":
-                Engine.start(GCDGame.getRule(), GCDGame::getQuestion, GCDGame::getCorrectAnswer,
-                        scanner);
+                GCDGame.play(scanner);
                 break;
 
             case "5":
-                Engine.start(ProgressionGame.getRule(), ProgressionGame::getQuestion,
-                        ProgressionGame::getCorrectAnswer, scanner);
+                ProgressionGame.play(scanner);
                 break;
 
             case "6":
-                Engine.start(PrimeGame.getRule(), PrimeGame::getQuestion,
-                        PrimeGame::getCorrectAnswer, scanner);
+                PrimeGame.play(scanner);
                 break;
 
             default:

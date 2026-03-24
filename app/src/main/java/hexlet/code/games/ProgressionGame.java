@@ -1,5 +1,6 @@
 package hexlet.code.games;
 
+import java.util.Scanner;
 
 public final class ProgressionGame {
     private static final int MIN_START_NUMBER = 1;
@@ -8,6 +9,11 @@ public final class ProgressionGame {
 
     private static final int MAX_LENGTH_PROGRESSION = 10;
     private static final int MIN_LENGTH_PROGRESSION = 5;
+
+    public static void play(Scanner scanner) {
+        Engine.start(ProgressionGame.getRule(), ProgressionGame::getQuestion,
+                ProgressionGame::getCorrectAnswer, scanner);
+    }
 
     public static String getRule() {
         return "What number is missing in the progression?";

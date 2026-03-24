@@ -1,8 +1,15 @@
 package hexlet.code.games;
 
+import java.util.Scanner;
+
 public final class CalcGame {
 
     private static final String[] OPERATORS = {"+", "-", "*"};
+
+    public static void play(Scanner scanner) {
+        Engine.start(PrimeGame.getRule(), PrimeGame::getQuestion, PrimeGame::getCorrectAnswer,
+                scanner);
+    }
 
     public static String getRule() {
         return "What is the result of the expression?";
@@ -36,4 +43,6 @@ public final class CalcGame {
                 throw new IllegalArgumentException("Unknown operator: " + operator);
         }
     }
+
+
 }

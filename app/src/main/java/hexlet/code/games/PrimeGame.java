@@ -1,6 +1,13 @@
 package hexlet.code.games;
 
+import java.util.Scanner;
+
 public final class PrimeGame {
+
+    public static void play(Scanner scanner) {
+        Engine.start(PrimeGame.getRule(), PrimeGame::getQuestion, PrimeGame::getCorrectAnswer,
+                scanner);
+    }
 
     public static String getRule() {
         return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";

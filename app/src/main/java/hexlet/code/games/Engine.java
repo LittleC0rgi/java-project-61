@@ -1,8 +1,9 @@
-package hexlet.code;
+package hexlet.code.games;
 
 import java.util.Scanner;
 import java.util.function.Supplier;
 import java.util.function.UnaryOperator;
+import hexlet.code.Cli;
 
 public class Engine {
 

@@ -1,6 +1,12 @@
 package hexlet.code.games;
 
+import java.util.Scanner;
+
 public final class GCDGame {
+
+    public static void play(Scanner scanner) {
+        Engine.start(GCDGame.getRule(), GCDGame::getQuestion, GCDGame::getCorrectAnswer, scanner);
+    }
 
     public static String getRule() {
         return "Find the greatest common divisor of given numbers.";
