@@ -22,9 +22,9 @@ public class App {
 
         System.out.print("Your choice: ");
         Scanner scanner = new Scanner(System.in);
-        String gameNumber = scanner.nextLine();
+        String userChoice = scanner.nextLine();
 
-        switch (gameNumber) {
+        switch (userChoice) {
             case "0":
                 System.out.println("Goodbye!");
                 break;
@@ -59,7 +59,7 @@ public class App {
                 break;
 
             default:
-                System.out.println("Invalid choice. Please try again.");
+                System.out.println("Unknown user choice" + userChoice);
                 break;
         }
 
