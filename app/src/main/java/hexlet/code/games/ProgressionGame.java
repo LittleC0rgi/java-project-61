@@ -24,35 +24,42 @@ public final class ProgressionGame {
         int length = GameUtils.getRandomNumber(MIN_LENGTH_PROGRESSION, MAX_LENGTH_PROGRESSION);
         int hiddenIndex = GameUtils.getRandomNumber(0, length - 1);
         int step = GameUtils.getRandomNumber(1, MAX_STEP);
-        int number = GameUtils.getRandomNumber(MIN_START_NUMBER, MAX_START_NUMBER);
-
-        var progression = new StringBuilder();
-
-        for (int i = 0; i < length; i++) {
-
-            if (i > 0) {
-                progression.append(" ");
-            }
-
-            if (i == hiddenIndex) {
-                progression.append("..");
-            } else {
-                progression.append(number);
-            }
-
-            number += step;
-        }
-
-        return progression.toString();
+        int startNumber = GameUtils.getRandomNumber(MIN_START_NUMBER, MAX_START_NUMBER);
+        return buildProgression(length, startNumber, step, hiddenIndex);
     }
 
     public static String getCorrectAnswer(String question) {
-        int length = GameUtils.getRandomNumber(MIN_LENGTH_PROGRESSION, MAX_LENGTH_PROGRESSION);
-        int hiddenIndex = GameUtils.getRandomNumber(0, length - 1);
-        int step = GameUtils.getRandomNumber(1, MAX_STEP);
-        int startNumber = GameUtils.getRandomNumber(MIN_START_NUMBER, MAX_START_NUMBER);
+        String[] numbers = question.split(" ");
 
-        return buildProgression(length, startNumber, step, hiddenIndex);
+        int hiddenIndex = -1;
+        for (int i = 0; i < numbers.length; i++) {
+            if (numbers[i].equals("..")) {
+                hiddenIndex = i;
+                break;
+            }
+        }
+
+        int step;
+        if (hiddenIndex >= 2) {
+            int a = Integer.parseInt(numbers[hiddenIndex - 1]);
+            int b = Integer.parseInt(numbers[hiddenIndex - 2]);
+            step = a - b;
+        } else {
+            int a = Integer.parseInt(numbers[hiddenIndex + 2]);
+            int b = Integer.parseInt(numbers[hiddenIndex + 1]);
+            step = a - b;
+        }
+
+        int result;
+        if (hiddenIndex > 0) {
+            int prevNumber = Integer.parseInt(numbers[hiddenIndex - 1]);
+            result = prevNumber + step;
+        } else {
+            int nextNumber = Integer.parseInt(numbers[hiddenIndex + 1]);
+            result = nextNumber - step;
+        }
+
+        return String.valueOf(result);
     }
 
     private static String buildProgression(int length, int startNumber, int step, int hiddenIndex) {
