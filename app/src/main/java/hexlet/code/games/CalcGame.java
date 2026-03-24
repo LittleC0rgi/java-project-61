@@ -7,7 +7,7 @@ public final class CalcGame {
     private static final String[] OPERATORS = {"+", "-", "*"};
 
     public static void play(Scanner scanner) {
-        Engine.start(PrimeGame.getRule(), PrimeGame::getQuestion, PrimeGame::getCorrectAnswer,
+        Engine.start(CalcGame.getRule(), CalcGame::getQuestion, CalcGame::getCorrectAnswer,
                 scanner);
     }
 
