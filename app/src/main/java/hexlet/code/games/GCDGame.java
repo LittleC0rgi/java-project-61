@@ -1,6 +1,8 @@
 package hexlet.code.games;
 
 public final class GCDGame {
+    public static final int MIN = 1;
+    public static final int MAX = 100;
 
     public static void play() {
         Engine.start(GCDGame.getRule(), GCDGame::getQuestion, GCDGame::getCorrectAnswer);
@@ -11,7 +13,7 @@ public final class GCDGame {
     }
 
     public static String getQuestion() {
-        return GameUtils.getTwoNumberQuestion();
+        return GameUtils.getTwoNumberQuestion(MIN, MAX);
     }
 
     public static String getCorrectAnswer(String question) {

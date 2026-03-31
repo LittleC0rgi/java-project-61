@@ -1,6 +1,8 @@
 package hexlet.code.games;
 
 public final class PrimeGame {
+    public static final int MIN = 1;
+    public static final int MAX = 100;
 
     public static void play() {
         Engine.start(PrimeGame.getRule(), PrimeGame::getQuestion, PrimeGame::getCorrectAnswer);
@@ -11,7 +13,7 @@ public final class PrimeGame {
     }
 
     public static String getQuestion() {
-        return String.valueOf(GameUtils.getRandomNumber());
+        return String.valueOf(GameUtils.getRandomNumber(MIN, MAX));
     }
 
     public static String getCorrectAnswer(String question) {

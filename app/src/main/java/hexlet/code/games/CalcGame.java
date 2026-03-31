@@ -1,7 +1,8 @@
 package hexlet.code.games;
 
-
 public final class CalcGame {
+    public static final int MIN = 1;
+    public static final int MAX = 100;
 
     private static final String[] OPERATORS = {"+", "-", "*"};
 
@@ -14,8 +15,9 @@ public final class CalcGame {
     }
 
     public static String getQuestion() {
-        String op = OPERATORS[GameUtils.getRandomNumber() % OPERATORS.length];
-        return GameUtils.getRandomNumber() + " " + op + " " + GameUtils.getRandomNumber();
+        String op = OPERATORS[GameUtils.getRandomNumber(MIN, MAX) % OPERATORS.length];
+        return GameUtils.getRandomNumber(MIN, MAX) + " " + op + " "
+                + GameUtils.getRandomNumber(MIN, MAX);
     }
 
     public static String getCorrectAnswer(String question) {
@@ -41,6 +43,5 @@ public final class CalcGame {
                 throw new IllegalArgumentException("Unknown operator: " + operator);
         }
     }
-
 
 }

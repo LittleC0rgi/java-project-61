@@ -1,7 +1,8 @@
 package hexlet.code.games;
 
-
 public final class EvenGame {
+    public static final int MIN = 1;
+    public static final int MAX = 100;
 
     public static void play() {
         Engine.start(EvenGame.getRule(), EvenGame::getQuestion, EvenGame::getCorrectAnswer);
@@ -12,7 +13,7 @@ public final class EvenGame {
     }
 
     public static String getQuestion() {
-        return String.valueOf(GameUtils.getRandomNumber());
+        return String.valueOf(GameUtils.getRandomNumber(MIN, MAX));
     }
 
     public static String getCorrectAnswer(String question) {
