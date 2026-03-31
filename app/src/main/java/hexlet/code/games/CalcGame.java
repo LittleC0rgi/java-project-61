@@ -1,14 +1,12 @@
 package hexlet.code.games;
 
-import java.util.Scanner;
 
 public final class CalcGame {
 
     private static final String[] OPERATORS = {"+", "-", "*"};
 
-    public static void play(Scanner scanner) {
-        Engine.start(CalcGame.getRule(), CalcGame::getQuestion, CalcGame::getCorrectAnswer,
-                scanner);
+    public static void play() {
+        Engine.start(CalcGame.getRule(), CalcGame::getQuestion, CalcGame::getCorrectAnswer);
     }
 
     public static String getRule() {

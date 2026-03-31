@@ -1,12 +1,9 @@
 package hexlet.code.games;
 
-import java.util.Scanner;
-
 public final class PrimeGame {
 
-    public static void play(Scanner scanner) {
-        Engine.start(PrimeGame.getRule(), PrimeGame::getQuestion, PrimeGame::getCorrectAnswer,
-                scanner);
+    public static void play() {
+        Engine.start(PrimeGame.getRule(), PrimeGame::getQuestion, PrimeGame::getCorrectAnswer);
     }
 
     public static String getRule() {

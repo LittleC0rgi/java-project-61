@@ -31,27 +31,27 @@ public class App {
                 break;
 
             case "1":
-                GreetingGame.play(scanner);
+                GreetingGame.play();
                 break;
 
             case "2":
-                EvenGame.play(scanner);
+                EvenGame.play();
                 break;
 
             case "3":
-                CalcGame.play(scanner);
+                CalcGame.play();
                 break;
 
             case "4":
-                GCDGame.play(scanner);
+                GCDGame.play();
                 break;
 
             case "5":
-                ProgressionGame.play(scanner);
+                ProgressionGame.play();
                 break;
 
             case "6":
-                PrimeGame.play(scanner);
+                PrimeGame.play();
                 break;
 
             default:
@@ -59,6 +59,5 @@ public class App {
                 break;
         }
 
-        scanner.close();
     }
 }

@@ -1,12 +1,10 @@
 package hexlet.code.games;
 
-import java.util.Scanner;
 
 public final class EvenGame {
 
-    public static void play(Scanner scanner) {
-        Engine.start(EvenGame.getRule(), EvenGame::getQuestion, EvenGame::getCorrectAnswer,
-                scanner);
+    public static void play() {
+        Engine.start(EvenGame.getRule(), EvenGame::getQuestion, EvenGame::getCorrectAnswer);
     }
 
     public static String getRule() {

@@ -1,11 +1,9 @@
 package hexlet.code.games;
 
-import java.util.Scanner;
-
 public final class GCDGame {
 
-    public static void play(Scanner scanner) {
-        Engine.start(GCDGame.getRule(), GCDGame::getQuestion, GCDGame::getCorrectAnswer, scanner);
+    public static void play() {
+        Engine.start(GCDGame.getRule(), GCDGame::getQuestion, GCDGame::getCorrectAnswer);
     }
 
     public static String getRule() {

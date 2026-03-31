@@ -10,9 +10,11 @@ public class Engine {
     private static final int ROUNDS = 3;
 
     public static void start(String rule, Supplier<String> questionSupplier,
-            UnaryOperator<String> answerProvider, Scanner scanner) {
+            UnaryOperator<String> answerProvider) {
         System.out.println();
         System.out.println("Welcome to the Brain Games!");
+
+        Scanner scanner = new Scanner(System.in);
 
         var userName = Cli.askName(scanner);
         if (rule == null || questionSupplier == null || answerProvider == null) {
