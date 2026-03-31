@@ -14,10 +14,6 @@ repositories {
 dependencies {
 }
 
-tasks.test {
-    useJUnitPlatform()
-}
-
 application {
     // Define the main class for the application.
     mainClass = "hexlet.code.App"
