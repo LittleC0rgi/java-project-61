@@ -24,8 +24,11 @@ public final class ProgressionGame {
         int step = GameUtils.getRandomNumber(1, MAX_STEP);
         int startNumber = GameUtils.getRandomNumber(MIN_START_NUMBER, MAX_START_NUMBER);
 
-        int[] progression = buildProgression(length, startNumber, step);
-        return formatQuestion(progression, hiddenIndex);
+        String[] progression = makeProgression(startNumber, step, length);
+        String answer = progression[hiddenIndex];
+        progression[hiddenIndex] = "..";
+        String question = String.join(" ", progression);
+        return question;
     }
 
 
@@ -63,22 +66,11 @@ public final class ProgressionGame {
         return String.valueOf(result);
     }
 
-    private static int[] buildProgression(int length, int startNumber, int step) {
-        int[] progression = new int[length];
+    private static String[] makeProgression(int first, int step, int length) {
+        String[] progression = new String[length];
         for (int i = 0; i < length; i++) {
-            progression[i] = startNumber + i * step;
+            progression[i] = String.valueOf(first + i * step);
         }
         return progression;
-    }
-
-    private static String formatQuestion(int[] progression, int hiddenIndex) {
-        var sb = new StringBuilder();
-        for (int i = 0; i < progression.length; i++) {
-            if (i > 0) {
-                sb.append(" ");
-            }
-            sb.append(i == hiddenIndex ? ".." : progression[i]);
-        }
-        return sb.toString();
     }
 }
