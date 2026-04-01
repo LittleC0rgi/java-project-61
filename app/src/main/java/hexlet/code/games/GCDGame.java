@@ -1,26 +1,29 @@
 package hexlet.code.games;
 
+import java.util.Map;
+
 public final class GCDGame {
     public static final int MIN = 1;
     public static final int MAX = 100;
 
     public static void play() {
-        Engine.start(GCDGame.getRule(), GCDGame::getQuestion, GCDGame::getCorrectAnswer);
+        var questionAndAnswer = buildQuestionAndAnswer();
+
+        Engine.start(GCDGame.getRule(), questionAndAnswer.getKey(), questionAndAnswer.getValue());
     }
 
     public static String getRule() {
         return "Find the greatest common divisor of given numbers.";
     }
 
-    public static String getQuestion() {
-        return GameUtils.getTwoNumberQuestion(MIN, MAX);
-    }
+    private static Map.Entry<String, String> buildQuestionAndAnswer() {
+        int a = GameUtils.getRandomNumber(MIN, MAX);
+        int b = GameUtils.getRandomNumber(MIN, MAX);
 
-    public static String getCorrectAnswer(String question) {
-        String[] parts = question.split(" ");
-        int a = Integer.parseInt(parts[0]);
-        int b = Integer.parseInt(parts[1]);
-        return String.valueOf(gcd(a, b));
+        String question = a + " " + b;
+        String answer = String.valueOf(gcd(a, b));
+
+        return Map.entry(question, answer);
     }
 
     private static int gcd(int a, int b) {

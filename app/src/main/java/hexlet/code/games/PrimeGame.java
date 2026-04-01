@@ -1,23 +1,27 @@
 package hexlet.code.games;
 
+import java.util.Map;
+
 public final class PrimeGame {
     public static final int MIN = 1;
     public static final int MAX = 100;
 
     public static void play() {
-        Engine.start(PrimeGame.getRule(), PrimeGame::getQuestion, PrimeGame::getCorrectAnswer);
+        var questionAndAnswer = buildQuestionAndAnswer();
+
+        Engine.start(PrimeGame.getRule(), questionAndAnswer.getKey(), questionAndAnswer.getValue());
     }
 
-    public static String getRule() {
+    private static String getRule() {
         return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     }
 
-    public static String getQuestion() {
-        return String.valueOf(GameUtils.getRandomNumber(MIN, MAX));
-    }
+    private static Map.Entry<String, String> buildQuestionAndAnswer() {
+        int number = GameUtils.getRandomNumber(MIN, MAX);
+        String question = String.valueOf(number);
+        String answer = isPrime(number) ? "yes" : "no";
 
-    public static String getCorrectAnswer(String question) {
-        return isPrime(Integer.parseInt(question)) ? "yes" : "no";
+        return Map.entry(question, answer);
     }
 
     private static boolean isPrime(int n) {

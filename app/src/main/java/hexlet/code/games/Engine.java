@@ -9,15 +9,14 @@ public class Engine {
 
     private static final int ROUNDS = 3;
 
-    public static void start(String rule, Supplier<String> questionSupplier,
-            UnaryOperator<String> answerProvider) {
+    public static void start(String rule, String question, String answer) {
         System.out.println();
         System.out.println("Welcome to the Brain Games!");
 
         Scanner scanner = new Scanner(System.in);
 
         var userName = Cli.askName(scanner);
-        if (rule == null || questionSupplier == null || answerProvider == null) {
+        if (rule == null || question == null || answer == null) {
             return;
         }
 
@@ -25,21 +24,18 @@ public class Engine {
 
         for (int i = 0; i < ROUNDS; i++) {
 
-            String question = questionSupplier.get();
-            String correctAnswer = answerProvider.apply(question);
-
             System.out.println("Question: " + question);
             System.out.print("Your answer: ");
 
             String userAnswer = scanner.nextLine();
 
-            boolean isCorrect = userAnswer.equalsIgnoreCase(correctAnswer);
+            boolean isCorrect = userAnswer.equalsIgnoreCase(answer);
 
             if (isCorrect) {
                 System.out.println("Correct!");
             } else {
                 System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '"
-                        + correctAnswer + "'.");
+                        + answer + "'.");
                 System.out.println("Let's try again, " + userName + "!");
                 return;
             }
